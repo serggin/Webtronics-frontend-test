@@ -1,0 +1,941 @@
+$viewport-width: 1920px;
+$contentLeft: 348px;
+
+/**
+* Text styles
+*/
+%h1-150px-text {
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 150px;
+  line-height: 120%;
+}
+%h2-72px-text {
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 120%;
+  text-align: center;
+}
+%h3-32px-text {
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 120%;  
+}
+%h4-24px-text {
+  font-family: 'Clash Display';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+}
+%p1-16px-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+}
+%p2-14px-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+}
+
+@mixin gradient-rectangle-border($border-radius) {
+	border: 1px solid transparent;
+      	border-radius: $border-radius;
+      	background-origin: border-box;
+      	background-clip: padding-box, border-box;
+      	background-size: cover;
+      	background-image: url("../assets/images/darkBg10px.svg"), linear-gradient(152.14deg, rgba(21, 191, 253, 0.7) 9.96%, rgba(156, 55, 253, 0.7) 100%);
+}
+
+.bgRectangle {
+  width: 100%;
+  height: 433px + 382px;
+  background-image: url("../assets/images/Rectangle 12234.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: -1px;
+  background-position-y: 433px;
+}
+
+.bgStars {
+  position: absolute;
+  width: 100%;
+  height: 7304px;
+  background: url("../assets/images/background.png") 0 0 no-repeat;
+  color: #FFF;
+  .content {
+    position: relative;
+    left: $contentLeft;
+    $width: 1224px;
+    width: $width;
+  }
+}
+
+/**
+* Top block: logo and menu
+*/
+$topBlock-top: 38px;
+$topBlock-bottom: 33px + $topBlock-top;
+.topBlock {
+  margin-top: $topBlock-top;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 525px;
+    margin-top: 2px;
+  }
+
+  .menuLink {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+  }
+}
+
+.logo {
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 525px;
+  margin-top: 2px;
+}
+
+.button {
+  background: linear-gradient(180deg, #1FF2FF 0%, #27F9E5 52.66%, #2FFFCD 100%);
+  border-radius: 8px;
+  width: 288px;
+  height: 72px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #0A1482;
+  border: none;
+  outline: none;
+}
+
+%arrowButton {
+  width: 40px;
+  height: 40px;
+}
+.arrawButtonLeft {
+  @extend %arrowButton;
+  background: url("../assets/images/arrow-left.svg") 0 0 no-repeat;
+}
+.arrawButtonRight {
+  @extend %arrowButton;
+  background: url("../assets/images/arrow-right.svg") 0 0 no-repeat;
+}
+
+/**
+* Main Header
+*/
+$mainHeader-top: 187px;
+$mainHeader-height: 366px;
+$mainHeader-bottom: $mainHeader-top + $mainHeader-height;
+.mainHeader {
+  $top: $mainHeader-top;
+  position: relative;
+  margin-top: $mainHeader-top - $topBlock-bottom;
+  height: $mainHeader-height;
+
+  h1 {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .frontend,
+  .developer {
+    @extend %h1-150px-text;
+    position: absolute;
+    white-space: nowrap;
+  }
+  .frontend {
+    left: 354px - $contentLeft;
+  }
+  .developer {
+    left: 660px - $contentLeft;
+    top: 343px - $top;
+  }
+
+  .cources {
+    @extend %h3-32px-text;
+    position: absolute;
+    left: 1388px - $contentLeft;
+    top: 515px - $top;
+  }
+
+  .mainHeaderText {
+    @extend %p1-16px-text;
+    position: absolute;
+    left: 1186px - $contentLeft;
+    top: 261px - $top;
+    width: 359px;
+    white-space: pre;
+  }
+
+  .startButton {
+    position: absolute;
+    left: 348px - $contentLeft;
+    top: 397px - $top
+  }
+}
+
+/**
+* About Us section
+*/
+$aboutUs-top: 742px;
+$aboutUs-height: 625px;
+$aboutUs-bottom: $aboutUs-top + $aboutUs-height;
+.aboutUs {
+  $top: 742px;
+  position: relative;
+  margin-top: $aboutUs-top - $mainHeader-bottom;
+  width: $viewport-width - $contentLeft - $contentLeft;
+  height: $aboutUs-height;
+
+  h2 {
+    @extend %h2-72px-text;
+  }
+
+  .mentorsGroup {
+    position: absolute;
+    width: 606px;
+    display: flex;
+    top: 884px - $top;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      @extend %h3-32px-text;
+    }
+    .mentorsLine {
+      margin-top: 933px - 884px - 38px;
+    }
+    .mentors {
+      width: 100%;
+      height: 328px;
+      margin-top: -51px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  .mentor {
+    $size: 188px;
+    position: relative;
+    width: $size;
+    .photo {
+      width: $size;
+      height: $size;
+      border-radius: $size / 2;
+      background: linear-gradient(152.14deg, rgba(21, 191, 253, 0.7) 9.96%, rgba(156, 55, 253, 0.7) 100%);
+      border: 1px solid #000000;
+    }
+    .ellipse {
+      position: absolute;
+      top: 0;
+    }
+    h4 {
+      @extend %h4-24px-text;
+      text-align: left;
+      margin-top: 204px - $size;
+    }
+    .text {
+      @extend %p2-14px-text;
+      margin-top: 5px;
+    }
+  }
+  .aboutUsText {
+    @extend %p1-16px-text;
+    position: absolute;
+    left: 971px - $contentLeft;
+    top: 993px - $top;
+    width: 486px;
+    white-space: pre;
+  }
+}
+
+.frontStroke {
+  position: absolute;
+  left: 1078px - $contentLeft;
+  top: 1163px;
+}
+
+/**
+* Programming technologies section
+*/
+$progTechs-top: 1546px;
+$progTechs-height: 516px;
+$progTechs-bottom: $progTechs-top + $progTechs-height;
+.progTechs {
+  $top: 1546px;
+  position: relative;
+  margin-top: $progTechs-top - $aboutUs-bottom;
+  width: $viewport-width - $contentLeft - $contentLeft;
+  height: $progTechs-height;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    @extend %h2-72px-text;
+    width: 543px;
+   }
+
+  .progTechsText {
+    @extend %p1-16px-text;
+    text-align: center;
+    width: 432px;
+    margin-top: 16px;
+  }
+
+  .programs {
+    width: 800px;
+    height: 230px;
+    margin-top: 53px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .program {
+    position: relative;
+    width: 182px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .subtract {
+      position: absolute;
+    }
+    .logo {
+      margin-top: 24px;
+      height: 136px;
+    }
+    .title {
+      @extend %h4-24px-text;
+      margin-top: 16px;
+    }
+  }
+}
+
+/**
+* Steps section
+*/
+$steps-top: 2246px;
+$steps-height: 1238px;
+$steps-bottom: $steps-top + $steps-height;
+.steps {
+  $top: 2246px;
+  position: relative;
+  width: 1213px;
+  height: $steps-height;
+  margin-top: $steps-top - $progTechs-bottom;
+  color: #FFF;
+
+  h2 {
+    @extend %h2-72px-text;
+  }
+
+  .stepsGroup {
+    width: 1213px;
+    height: 1096px;
+    margin-top: 142px - 86px;
+    background: url("../assets/images/stepsVerticalLine.svg") 606px 108px no-repeat;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .wrapper {
+      width: 606.5px;
+      height: 372px;
+    }
+
+    %outer {
+      width: 491px;
+      height: 228px;
+      padding-top: 18px;
+      position: relative;
+    }
+
+    .stepLeft {
+      @extend %outer;
+      margin-right: -127px;
+      background: url("../assets/images/StepLeftStroke.svg") 345px 0 no-repeat;
+    }
+
+    .stepRight {
+      @extend %outer;
+      margin-left: 115px;
+      margin-top: 266px - 142px;
+      padding-left: 16px;
+      background: url("../assets/images/StepRightStroke.svg") 0 0 no-repeat;
+    }
+
+    %lineImageStyle {
+      position: absolute;
+      top: 102px;
+    }
+
+    .lineLeft {
+      @extend %lineImageStyle;
+      right: -127px;
+    }
+
+    .lineRight {
+      @extend %lineImageStyle;
+      left: -127px;
+    }
+
+    .stepInner {
+      @include gradient-rectangle-border(8px);
+      width: 475px;
+      height: 191px;
+      padding: 24px;
+      h3 {
+        @extend %h4-24px-text;
+      }
+      h4 {
+        @extend %h3-32px-text;
+        margin-top: 16px;
+      }
+      .text {
+        @extend %p1-16px-text;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+/**
+* Frequently Asked Questions section
+*/
+$faqs-top: 3664px;
+$faqs-height: 738px;
+$faqs-bottom: $faqs-top + $faqs-height;
+.faqs {
+  position: relative;
+  margin-top: $faqs-top - $steps-bottom;
+  width: 1223px;
+/*  height: 738px; */
+  min-height: $faqs-height;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    @extend %h2-72px-text;
+    width: 641px;
+    height: 172px;
+  }
+
+  .faqContent {
+    margin-top: 228px - 172px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .faqContentLeft {
+    position: relative;
+    width: 496px;
+    height: 510px;
+  }
+  .faqContentRight {
+    width: 703px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text {
+    @extend %p1-16px-text;
+    white-space: pre;
+  }
+  .questionImage {
+    position: absolute;
+    left: -350px;
+    top: -890px;
+  }
+
+  .faqCollapsed {
+    height: 62px;
+    background-image: url("../assets/images/faq-collapsed-bg.svg");
+
+    .faqTexts {
+      margin-top: 16.5px;
+      margin-left: 24px;
+    }
+
+    .faqIcon {
+      top: 16.5px;
+      left: 663px;
+    }
+  }
+
+  .faqExpanded {
+    $border: 35;
+    $borderWidth: 35px;
+    border: $borderWidth solid;
+    border-image-source: url("../assets/images/border-faq-big.svg");
+    border-image-slice: $border;
+    background-color: rgba(255, 255, 255, 0.05);
+    background-clip: content-box;  
+
+    .faqTexts {
+      width: 606px;
+      margin-left: 24px - $borderWidth;
+      margin-top: 27.5px - $borderWidth;
+      margin-bottom: 27.5px - $borderWidth;
+    }
+    
+    .faqIcon {
+      top: -11px;
+      left: 625px;
+    }
+  }
+
+  .faq {
+    position: relative;
+    width: 703px;
+    
+    margin-top: 24px;
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+
+    .faqIcon {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+    }
+
+    h3 {
+      @extend %h4-24px-text;
+    }
+    .answer {
+      @extend %p1-16px-text;
+      margin-top: 16px;
+    }
+  }
+  .open {
+    background: url("../assets/images/iconFaqOpen.svg") 0 0 no-repeat;
+  }
+  .close {
+    background: url("../assets/images/iconFaqClose.svg") 0 0 no-repeat;
+  }
+}
+
+/**
+* Review section
+*/
+$reviews-top: 4582px;
+$reviews-height: 612px;
+$reviews-bottom: $reviews-top + $reviews-height;
+.reviews {
+  position: relative;
+  margin-top: $reviews-top - $faqs-bottom;
+  width: 1224px;
+  height: $reviews-height;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    @extend %h2-72px-text;
+  }
+
+  .reviewsContent {
+    margin-top: 134px - 86px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .reviewsContentLeft {
+    position: relative;
+    width: 392px;
+    padding-top: 124px;
+  h3 {
+      @extend %h4-24px-text;
+    }
+    .text {
+      @extend %p1-16px-text;
+      margin-top: 17px;
+    }
+  }
+
+  .reviewsContentRight {
+    width: 808px;
+    display: flex;
+    flex-direction: column;
+
+    .reviewsControls, .reviewsPhotos {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .reviewsPhotos {
+      margin-top: 16px;
+    }
+  }
+  .reviewIndexText {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .reviewIndex {
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .reviewAmount {
+    font-family: 'Clash Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    margin-left: 8px;
+  }
+
+  .reviewPhotoWide {
+    position: relative;
+    width: 392px;
+    height: 422px;
+
+    .reviewPhotoBorderWide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../assets/images/photo-border-wide.svg") 0 0 no-repeat;
+    }
+  }
+
+  .reviewPhotoNarrow {
+    position: relative;
+    width: 184px;
+    height: 422px;
+    
+    .reviewPhotoBorderNarrow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../assets/images/photo-border-narrow.svg") 0 0 no-repeat;
+    }
+  }
+
+  @mixin review-photo-mask($image) {
+    -webkit-mask-image: url($image);
+    mask-image: url($image);
+   -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat; 
+  }
+
+  .reviewPhotoMaskWide {
+    @include review-photo-mask("../assets/images/photo-fill-big.svg");
+  }
+
+  .reviewPhotoMaskNarrow {
+    @include review-photo-mask("../assets/images/photo-fill-small.svg");
+  }
+
+  .arrowButtons {
+    width: 104px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/**
+* Gallery section
+*/
+$gallery-top: 5374px;
+$gallery-height: 812px;
+$gallery-bottom: $gallery-top + $gallery-height;
+.gallery {
+  position: relative;
+  margin-top: $gallery-top - $reviews-bottom;
+  width: 1224px;
+  height: $gallery-height;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    @extend %h2-72px-text;
+  }
+
+  $content-top: 5508px;
+  .galleryContent {
+    margin-top: $content-top - $gallery-top - 86px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .galleryContentLeft {
+    width: 288px;
+  }
+
+  $textLeft-top: 5554px;
+  $textLeft-margin-top: $textLeft-top - $content-top;
+  $textLeft-height: 110px;
+  .textLeft {
+    @extend %p1-16px-text;
+    margin-top: $textLeft-margin-top;
+  }
+
+  $textRight-top: 6081px;
+  $textRight-margin-top: $textRight-top - 5508px - 434px;
+  .textRight {
+    @extend %p1-16px-text;
+    margin-top: $textRight-margin-top;
+    width: 868px;
+  }
+  .image4 {
+    margin-top: 5748px - $textLeft-top - $textLeft-height;
+    width: 288px;
+    height: 434px;
+    border-radius: 16px;
+    background: url("../assets/images/deloper 4.jpg") 0 0 no-repeat;
+  }
+
+  .galleryContentMain {
+    width: 912px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .galleryImagesMain {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .image1 {
+    width: 600px;
+    height: 434px;
+    border-radius: 16px;
+    background: url("../assets/images/developer 1.jpg") 0 0 no-repeat;
+  }
+
+  .image2 {
+    width: 288px;
+    height: 209px;
+    border-radius: 16px;
+    background: url("../assets/images/developer 2.jpg") 0 0 no-repeat;
+  }
+
+  .image3 {
+    margin-top: 24px;
+    width: 288px;
+    height: 201px;
+    border-radius: 16px;
+    background: url("../assets/images/developer 3.jpg") 0 0 no-repeat;
+  }
+}
+
+/**
+* Contact Us section
+*/
+$contactUs-top: 6363px;
+.contactUs {
+  @include gradient-rectangle-border(20px);
+  position: relative;
+  margin-top: $contactUs-top - $gallery-bottom;
+  width: 1224px;
+
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    @extend %h2-72px-text;
+    margin-top: 56px;
+  }
+
+  .text {
+    @extend %p1-16px-text;
+    margin-top: 16px;
+  }
+
+  .inputs {
+    margin-top: 24px;
+    width: 493px;
+
+    div.error {
+      @extend %p1-16px-text;
+      color: #FFF;
+    }
+  }
+
+  %input {
+    @extend %p1-16px-text;
+    @include gradient-rectangle-border(5px);
+    width: 493px;
+    height: 70px;
+    margin-top: 16px;
+    padding: 24px;
+    outline: none;
+
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+  }
+
+  input {
+    @extend %input;
+    color: #A2CBFB;
+
+    &:active, &:focus {
+      color: #FFF;
+    }
+
+    &:invalid, &.error {
+      border-radius: 8px;
+      border: 1px solid #FD4646;
+      background: rgba(255, 165, 165, 0.2);
+    }
+  }
+
+  .sendButton {
+    margin-top: 24px;
+    margin-bottom: 56px;
+    width: 493px;
+  }
+}
+
+.footer {
+  position: relative;
+  margin-top: 148px;
+  height: 195px;
+  border-top: 1px solid;
+  border-image: linear-gradient(152.14deg, rgba(21, 191, 253, 0.7) 9.96%, rgba(156, 55, 253, 0.7) 100%) 1;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+
+  .footerContent {
+    position: relative;
+    left: 348px;
+    top: 33px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .address {
+    margin-top: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    white-space: pre;
+  }
+
+  .companyFrame {
+    width: 255px;
+    margin-left: 188px;
+
+    h4 {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    .menu {
+      width: 100%;
+      margin-top: 24px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      column-gap: 145px;
+      row-gap: 16px;
+    }
+
+    .menuLink {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;    }
+  }
+
+  .mediaFrame {
+    width: 155px;
+    margin-left: 165px;
+  }
+  .socials {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  %social {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+  }
+  .facebook {
+    @extend %social;
+    background: url("../assets/images/facebook.svg") center center no-repeat;
+  }
+  .unknown {
+    @extend %social;
+    background: url("../assets/images/social2.svg") center center no-repeat;
+  }
+  .twitter {
+    @extend %social;
+    background: url("../assets/images/twitter.svg") center center no-repeat;
+  }
+  .linkedin {
+    @extend %social;
+    background: url("../assets/images/linkedin.svg") center center no-repeat;
+  }
+}
